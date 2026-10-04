@@ -66,6 +66,23 @@ export async function POST(req: Request) {
       to: notificationEmail,
       replyTo: clientEmail,
       subject: `🚨 New Technical Inquiry: ${requestedService} — ${clientName}`,
+      text: `EURO EDGE TECHNICAL SERVICES L.L.C.
+New Technical Inquiry Received
+
+Submitted on: ${timestamp} (UAE Time)
+
+Client Details:
+• Name: ${clientName}
+• Email: ${clientEmail}
+• Phone / WhatsApp: ${clientPhone}
+• Service Required: ${requestedService}
+• Location: ${propertyLocation}
+
+Requirement / Scope:
+${clientMessage}
+
+Direct Reply: You can reply directly to this email to contact the client.
+Website: https://euroedgets.com`,
       html: `
         <div style="font-family: Arial, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #ffffff;">
           <div style="background-color: #0a2540; padding: 24px; color: #ffffff;">
@@ -114,32 +131,62 @@ export async function POST(req: Request) {
     const customerMailOptions = {
       from: `"Euro Edge Technical Services" <${smtpUser}>`,
       to: clientEmail,
-      subject: `Thank you for contacting Euro Edge Technical Services L.L.C.`,
+      subject: `Inquiry Received – Euro Edge Technical Services L.L.C.`,
+      text: `Dear ${clientName},
+
+Thank you for contacting Euro Edge Technical Services L.L.C.
+
+We have received your technical inquiry regarding "${requestedService}" for "${propertyLocation}".
+
+Our engineering and operations team is reviewing your requirements, and a dedicated team member will contact you shortly to discuss project details or schedule a site survey.
+
+Summary of Your Inquiry:
+• Service Required: ${requestedService}
+• Location: ${propertyLocation}
+• Received: ${timestamp} (UAE Time)
+
+Need Immediate Assistance?
+• Phone: +971 54 390 9946
+• WhatsApp: https://wa.me/971543909946
+• Email: info@euroedgets.com
+
+Best regards,
+Operations Management
+Euro Edge Technical Services L.L.C.
+Al Quoz Industrial Area, Dubai, United Arab Emirates
+https://euroedgets.com`,
       html: `
         <div style="font-family: Arial, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #ffffff;">
-          <div style="background-color: #0a2540; padding: 28px; text-align: center; color: #ffffff;">
+          <div style="background-color: #0a2540; padding: 28px 24px; text-align: center; color: #ffffff;">
             <h1 style="margin: 0; font-size: 22px; font-weight: bold; letter-spacing: 1px;">EURO EDGE</h1>
             <p style="margin: 6px 0 0 0; color: #fbb03b; font-size: 11px; font-weight: 600; letter-spacing: 2px;">THE EDGE OF QUALITY BUILT ON TRUST</p>
           </div>
-          <div style="padding: 28px; color: #334155; font-size: 14px; line-height: 1.6;">
-            <p style="font-size: 16px; color: #0a2540;">Dear <strong>${clientName}</strong>,</p>
+          <div style="padding: 28px 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+            <p style="font-size: 16px; color: #0a2540; margin-top: 0;">Dear <strong>${clientName}</strong>,</p>
             <p>Thank you for reaching out to <strong>Euro Edge Technical Services L.L.C.</strong></p>
             <p>We have successfully received your inquiry regarding <strong>${requestedService}</strong>. Our engineering operations desk is reviewing your requirements, and a dedicated team member will contact you shortly to discuss details or arrange a site survey.</p>
 
             <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 20px 0;">
-              <p style="margin: 0 0 8px 0; font-weight: bold; color: #0a2540; font-size: 13px;">Your Submitted Inquiry:</p>
+              <p style="margin: 0 0 8px 0; font-weight: bold; color: #0a2540; font-size: 13px;">Summary of Your Inquiry:</p>
               <ul style="margin: 0; padding-left: 20px; color: #64748b; font-size: 13px; line-height: 1.8;">
                 <li><strong>Service:</strong> ${requestedService}</li>
                 <li><strong>Location:</strong> ${propertyLocation}</li>
-                <li><strong>Reference Date:</strong> ${timestamp}</li>
+                <li><strong>Received:</strong> ${timestamp} (UAE Time)</li>
               </ul>
             </div>
 
             <p style="margin-top: 20px; font-weight: 600; color: #0a2540;">Need Immediate Assistance or 24/7 Emergency Support?</p>
-            <p style="margin: 6px 0 0 0;">
-              📞 <strong>Hotline:</strong> <a href="tel:+971543909946" style="color: #0066cc; text-decoration: none; font-weight: bold;">+971 54 390 9946</a><br>
-              💬 <strong>WhatsApp:</strong> <a href="https://wa.me/971543909946" style="color: #25D366; text-decoration: none; font-weight: bold;">Click to Chat on WhatsApp</a>
-            </p>
+            <table style="width: 100%; margin-top: 10px; margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 4px 0;">📞 <strong>Direct Hotline:</strong> <a href="tel:+971543909946" style="color: #0066cc; text-decoration: none; font-weight: bold;">+971 54 390 9946</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 4px 0;">💬 <strong>WhatsApp:</strong> <a href="https://wa.me/971543909946" style="color: #25D366; text-decoration: none; font-weight: bold;">Click to Chat on WhatsApp</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 4px 0;">✉️ <strong>Official Email:</strong> <a href="mailto:info@euroedgets.com" style="color: #0066cc; text-decoration: none; font-weight: bold;">info@euroedgets.com</a></td>
+              </tr>
+            </table>
 
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 28px 0 16px 0;" />
             <p style="margin: 0; font-size: 11px; color: #94a3b8; text-align: center;">

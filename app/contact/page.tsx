@@ -127,56 +127,64 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 gap-3 pt-1">
 
                 {/* 1. Phone / WhatsApp */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       PHONE / WHATSAPP
                     </span>
                     <a
                       href="tel:+971543909946"
-                      className="text-base font-bold text-[#0a2540] hover:text-[#0066cc] transition-colors block mt-0.5"
+                      className="text-sm sm:text-base font-bold text-[#0a2540] hover:text-[#0066cc] transition-colors block mt-0.5"
                     >
                       +971 54 390 9946
                     </a>
                   </div>
                 </div>
 
-                {/* 2. Email */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                {/* 2. Official Email Box */}
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
-                      EMAIL
-                    </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+                        OFFICIAL EMAIL
+                      </span>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-[#0066cc] tracking-wide">
+                        FAST REPLY
+                      </span>
+                    </div>
                     <a
                       href="mailto:info@euroedgets.com"
-                      className="text-sm font-bold text-[#0a2540] hover:text-[#0066cc] transition-colors block mt-0.5"
+                      className="text-sm sm:text-base font-bold text-[#0a2540] hover:text-[#0066cc] transition-colors block mt-0.5 break-all sm:break-normal"
                     >
                       info@euroedgets.com
                     </a>
+                    <span className="text-xs text-slate-500 block mt-0.5">
+                      Direct operations &amp; project inquiry desk
+                    </span>
                   </div>
                 </div>
 
                 {/* 3. Contact Person & Position */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <User className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       CONTACT PERSON
                     </span>
-                    <span className="text-sm font-bold text-[#0a2540] block mt-0.5">
+                    <span className="text-sm sm:text-base font-bold text-[#0a2540] block mt-0.5">
                       Pranoydas Mullasseri
                     </span>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <Briefcase className="w-3.5 h-3.5 text-slate-400" />
-                      <span className="text-xs text-slate-500 font-medium">
+                      <Briefcase className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span className="text-xs text-slate-500 font-medium truncate">
                         Operations Manager
                       </span>
                     </div>
@@ -184,45 +192,45 @@ export default function ContactPage() {
                 </div>
 
                 {/* 4. Location */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <MapPin className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       LOCATION
                     </span>
-                    <span className="text-sm font-bold text-[#0a2540] block mt-0.5">
+                    <span className="text-sm sm:text-base font-bold text-[#0a2540] block mt-0.5">
                       Al Quoz Industrial Area, Dubai, UAE
                     </span>
                   </div>
                 </div>
 
                 {/* 5. Current Service Area */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <Globe className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       SERVICE AREA
                     </span>
-                    <span className="text-sm font-bold text-[#0a2540] block mt-0.5">
+                    <span className="text-sm sm:text-base font-bold text-[#0a2540] block mt-0.5">
                       Dubai &amp; UAE / All Emirates
                     </span>
                   </div>
                 </div>
 
                 {/* 6. Current Working Hours */}
-                <div className="p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] flex-shrink-0 border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/90 flex items-start gap-3.5 sm:gap-4 hover:border-[#0066cc]/40 hover:bg-blue-50/30 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-[#0066cc] shrink-0 border border-slate-200/90 shadow-sm">
                     <Clock className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                       WORKING HOURS
                     </span>
-                    <span className="text-sm font-bold text-[#0a2540] block mt-0.5">
+                    <span className="text-sm sm:text-base font-bold text-[#0a2540] block mt-0.5">
                       Mon – Sat, 8:00 AM – 6:00 PM GST
                     </span>
                   </div>
@@ -234,7 +242,7 @@ export default function ContactPage() {
 
           {/* RIGHT COLUMN: Enquiry Form */}
           <div className="lg:col-span-7 order-1 lg:order-2">
-            <div className="p-5 sm:p-8 lg:p-10 rounded-2xl bg-card border border-border shadow-sm">
+            <div className="p-4 sm:p-7 lg:p-9 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
               <ContactForm />
             </div>
           </div>

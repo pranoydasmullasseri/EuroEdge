@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { Send, CheckCircle2, Loader2, Lock, Mail, Copy, Check } from "lucide-react"
+import { Send, CheckCircle2, Loader2, Lock, Mail, Copy, Check, AlertCircle } from "lucide-react"
 
 interface ContactFormProps {
   showHeading?: boolean
@@ -19,6 +19,7 @@ export function ContactForm({ showHeading = true }: ContactFormProps = {}) {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submittedEmail, setSubmittedEmail] = useState("")
   const [errorMsg, setErrorMsg] = useState("")
   const [copied, setCopied] = useState(false)
 
@@ -52,7 +53,7 @@ I would like to enquire about:
 
   const whatsappUrl = `https://wa.me/971543909946?text=${encodeURIComponent(whatsappMsg)}`
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setErrorMsg("")
 
@@ -80,16 +81,30 @@ I would like to enquire about:
 
     setIsSubmitting(true)
 
-    // Trigger direct mail client submission to info@euroedgets.com
-    setTimeout(() => {
-      try {
-        window.location.href = mailtoUrl
-      } catch {
-        // ignore navigation pop-up blocks
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to deliver inquiry. Please try again or reach out on WhatsApp.")
       }
-      setIsSubmitting(false)
+
+      setSubmittedEmail(formData.email)
       setSubmitted(true)
-    }, 400)
+    } catch (err: any) {
+      setErrorMsg(
+        err.message || "Network issue delivering email. You can also send directly via email client or WhatsApp below."
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleCopy = () => {
@@ -102,33 +117,63 @@ I would like to enquire about:
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
-        <div className="w-16 h-16 bg-[#0a2540] text-[#fbb03b] rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-white/10">
-          <CheckCircle2 className="w-8 h-8" />
+      <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-2 sm:px-4 text-center">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0a2540] text-[#fbb03b] rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-sm border border-white/10">
+          <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
         </div>
-        <h3 className="font-serif text-2xl text-foreground font-bold">Inquiry Directed to Info Mail</h3>
-        <p className="mt-3 text-muted-foreground text-xs sm:text-sm font-sans max-w-md leading-relaxed">
-          Your inquiry has been formatted and addressed to <span className="font-bold text-foreground">info@euroedgets.com</span>. If your mail client did not open automatically, you can send it directly or chat with us on WhatsApp:
+        <h3 className="font-serif text-2xl sm:text-3xl text-foreground font-bold tracking-tight">
+          Inquiry Successfully Sent!
+        </h3>
+        <p className="mt-2 text-muted-foreground text-xs sm:text-sm font-sans max-w-md leading-relaxed">
+          Thank you, <span className="font-bold text-foreground">{formData.name || "valued client"}</span>. Our operations desk has received your request.
         </p>
+
+        {/* 2-way email confirmation callout */}
+        <div className="mt-5 w-full max-w-lg p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-left space-y-3">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#0066cc] text-white flex items-center justify-center shrink-0 mt-0.5">
+              <Mail className="w-4 h-4" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h4 className="text-xs sm:text-sm font-bold text-[#0a2540]">
+                Confirmation Sent to Your Inbox
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 leading-relaxed break-all">
+                An automated receipt and copy of your inquiry has been dispatched to:
+              </p>
+              <div className="mt-1.5 inline-block px-2.5 py-1 rounded-md bg-white border border-blue-200 text-xs font-mono font-semibold text-[#0066cc] break-all">
+                {submittedEmail || formData.email}
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">
+                (If you do not see it within a few minutes, please check your spam/junk folder)
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-blue-100 flex items-center justify-between text-[11px] text-slate-600">
+            <span>Delivered to Euro Edge Desk:</span>
+            <span className="font-bold text-[#0a2540]">info@euroedgets.com</span>
+          </div>
+        </div>
 
         {/* Primary Action Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
           <a
-            href={mailtoUrl}
-            className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
-          >
-            <Mail className="w-4 h-4 text-[#fbb03b]" />
-            <span>Open Email</span>
-          </a>
-
-          <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1fa851] text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
+            className="w-full sm:w-1/2 py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1fa851] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm min-h-[48px]"
           >
             <Send className="w-4 h-4" />
-            <span>Send on WhatsApp</span>
+            <span>Chat on WhatsApp</span>
+          </a>
+
+          <a
+            href="tel:+971543909946"
+            className="w-full sm:w-1/2 py-3.5 px-4 rounded-xl bg-[#0a2540] hover:bg-[#0066cc] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm min-h-[48px]"
+          >
+            <Mail className="w-4 h-4 text-[#fbb03b]" />
+            <span>Call +971 54 390 9946</span>
           </a>
         </div>
 
@@ -185,8 +230,29 @@ I would like to enquire about:
       )}
 
       {errorMsg && (
-        <div className="mb-5 p-3.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 text-xs font-medium">
-          {errorMsg}
+        <div className="mb-5 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-medium space-y-3">
+          <div className="flex items-start gap-2.5">
+            <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">{errorMsg}</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-red-200/60">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-2xs"
+            >
+              <Send className="w-3 h-3" />
+              Chat on WhatsApp
+            </a>
+            <a
+              href={mailtoUrl}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold shadow-2xs"
+            >
+              <Mail className="w-3 h-3 text-[#fbb03b]" />
+              Open in Mail App
+            </a>
+          </div>
         </div>
       )}
 
@@ -210,18 +276,26 @@ I would like to enquire about:
         {/* Email & Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="email" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block mb-1.5">
-              Email Address <span className="text-red-500">*</span>
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
-              placeholder="name@company.com"
-            />
+            <div className="flex items-center justify-between mb-1.5">
+              <label htmlFor="email" className="text-xs sm:text-[12px] font-bold uppercase tracking-wider text-slate-700 font-sans block">
+                Email Address <span className="text-red-500">*</span>
+              </label>
+              <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">2-way confirmation</span>
+            </div>
+            <div className="relative">
+              <input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-[16px] sm:text-sm font-sans text-[#0a2540] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066cc]/30 focus:border-[#0066cc] transition-all min-h-[48px] shadow-2xs"
+                placeholder="name@company.com"
+              />
+            </div>
+            <p className="text-[11px] text-slate-500 font-sans mt-1 leading-tight">
+              You will receive an automated confirmation at this address.
+            </p>
           </div>
 
           <div>
@@ -326,7 +400,7 @@ I would like to enquire about:
           {isSubmitting ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>PREPARING INQUIRY...</span>
+              <span>SENDING INQUIRY...</span>
             </>
           ) : (
             <>

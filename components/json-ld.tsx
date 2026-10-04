@@ -85,7 +85,9 @@ export function JsonLd() {
       "name": "Request a Quote"
     },
     "sameAs": [
-      "https://wa.me/971543909946"
+      "https://wa.me/971543909946",
+      "https://www.instagram.com/euro_edge",
+      "https://www.linkedin.com/company/euro-edge-technical-services-llc/"
     ]
   }
 

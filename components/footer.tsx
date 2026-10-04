@@ -94,6 +94,12 @@ export function Footer() {
                 </span>
               </div>
             </Link>
+            <p className="mt-3 text-xs text-sky-100/90 font-medium italic">
+              &quot;The Edge of Quality Built on Trust&quot;
+            </p>
+            <p className="mt-2 text-xs text-white/75 leading-relaxed max-w-sm font-sans">
+              Certified technical contracting solutions for residential, commercial, and industrial properties in Dubai and across the UAE.
+            </p>
           </div>
 
           {/* Column 2: Official Services (Span 3) — hidden on mobile */}
@@ -246,11 +252,19 @@ export function Footer() {
             {/* Primary Required Text: Company Name, Dubai UAE, and Copyright */}
             <div className="space-y-1.5 max-w-xl">
               <p className="text-xs sm:text-sm text-white font-semibold tracking-normal sm:tracking-wide">
-                Euro Edge Technical Services L.L.C • Dubai, United Arab Emirates
+                EURO EDGE — Technical Services L.L.C. • Dubai, United Arab Emirates
               </p>
-              <p className="text-[11px] sm:text-xs text-sky-100/80 font-normal">
-                © 2026 Euro Edge Technical Services L.L.C. All rights reserved.
-              </p>
+              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs text-sky-100/80 font-normal justify-center lg:justify-start flex-wrap">
+                <span>© 2026 Euro Edge Technical Services L.L.C. All rights reserved.</span>
+                <span className="text-white/40">•</span>
+                <Link href="/privacy-policy" className="hover:text-white underline underline-offset-2 transition-colors">
+                  Privacy Policy
+                </Link>
+                <span className="text-white/40">•</span>
+                <Link href="/terms-and-conditions" className="hover:text-white underline underline-offset-2 transition-colors">
+                  Terms &amp; Conditions
+                </Link>
+              </div>
             </div>
 
             {/* Social Media Channels & Back to Top */}

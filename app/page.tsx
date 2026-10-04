@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
 import { HomeScrollAnimations } from "@/components/home-scroll-animations"
 import { DivisionsMobileRow } from "@/components/divisions-mobile-row"
+import { FAQSection } from "@/components/faq-section"
 import {
   ShieldCheck,
   CheckCircle2,
@@ -90,25 +91,33 @@ export default function HomePage() {
 
         <div className="relative z-10 container-wide max-w-[1800px] mx-auto px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-28 sm:pt-36 lg:pt-40 pb-12 sm:pb-20 lg:pb-24 w-full">
           <div className="max-w-2xl xl:max-w-3xl space-y-4 sm:space-y-6">
-            {/* Main Headline - elevated placement */}
-            <h1 data-anim="hero-heading" className="font-editorial-h1 text-[2.2rem] sm:text-5xl lg:text-6xl text-white font-medium leading-[1.1] sm:leading-[1.08] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+            {/* Brand Statement - White Color */}
+            <div className="font-editorial-h1 text-[2.2rem] sm:text-5xl lg:text-6xl text-white font-medium tracking-tight leading-[1.1] sm:leading-[1.08] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               The Edge of Quality <br />
-              Built on <span className="text-[#fbb03b]">Trust.</span>
+              Built on Trust.
+            </div>
+
+            {/* Service & Location Headline - Two Lines in Goldish Tone */}
+            <h1 data-anim="hero-heading" className="font-editorial-h1 text-lg sm:text-2xl lg:text-3xl text-[#fbb03b] font-normal leading-snug tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] max-w-xl">
+              Professional Technical Services <br />
+              And Contracting in Dubai.
             </h1>
 
-            {/* Short description — visible on mobile for context */}
-            <p className="text-sm sm:hidden text-white/90 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] max-w-xs">
-              Civil, MEP, Pool &amp; Landscaping contracting across Dubai and the UAE.
-            </p>
+            {/* Action Buttons: Primary Quote + Secondary Services */}
+            <div data-anim="hero-cta" className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
+              <Link
+                href="/contact"
+                className="font-editorial-nav inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#fbb03b]/20 hover:shadow-[#fbb03b]/30 hover:-translate-y-0.5 group text-center"
+              >
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
 
-            {/* Action Buttons: Single gold button */}
-            <div data-anim="hero-cta" className="pt-2 sm:pt-3 flex flex-col xs:flex-row sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 max-w-[260px] sm:max-w-none">
               <Link
                 href="/services"
-                className="font-editorial-nav inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#fbb03b] hover:bg-[#e09b2d] text-[#0a2540] text-xs uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#fbb03b]/20 hover:shadow-[#fbb03b]/30 hover:-translate-y-0.5 group text-center"
+                className="font-editorial-nav inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/30 text-xs uppercase tracking-wider font-semibold transition-all backdrop-blur-md hover:-translate-y-0.5 text-center"
               >
-                <span>Our Services</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <span>Explore Services</span>
               </Link>
             </div>
           </div>
@@ -461,16 +470,9 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION: INDUSTRIES WE SERVE - SOLUTIONS FOR EVERY INDUSTRY (BENTO LAYOUT)
       ========================================================================= */}
-      <section data-section="industries" className="relative overflow-hidden py-14 sm:py-24 px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-[#fbfcfe]">
-        {/* Subtle Dubai Skyline Watermark in the Top-Right */}
-        <div className="absolute right-0 top-0 w-80 sm:w-96 md:w-[500px] h-64 pointer-events-none opacity-40 z-0">
-          <Image
-            src="/images/industries/industries-skyline-feathered.png"
-            alt=""
-            fill
-            className="object-contain object-right-top"
-          />
-        </div>
+      <section data-section="industries" className="relative overflow-hidden py-14 sm:py-24 px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-y border-slate-200/60">
+        {/* Soft architectural subtle ambient glow matching website backdrop */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,102,204,0.03),transparent_50%)] pointer-events-none" />
 
         <div className="container-wide max-w-[1800px] mx-auto relative z-10">
           {/* Asymmetric 3-Column Bento Grid */}
@@ -922,6 +924,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          SECTION: FREQUENTLY ASKED QUESTIONS
+      ========================================================================= */}
+      <FAQSection />
 
       {/* =========================================================================
           SECTION 8: READY TO BUILD TOGETHER? (Contained Sunset Skyline Banner)

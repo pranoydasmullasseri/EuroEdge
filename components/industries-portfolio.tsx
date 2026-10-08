@@ -422,6 +422,7 @@ export function IndustriesPortfolio() {
                       src={sector.image}
                       alt={sector.title}
                       fill
+                      quality={90}
                       className="object-cover object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
@@ -625,6 +626,7 @@ export function IndustriesPortfolio() {
                   src="/images/industries/outdoor-pergola.jpg"
                   alt="Luxury outdoor landscaping and pergola living space"
                   fill
+                  quality={90}
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />

@@ -62,6 +62,7 @@ export default function ContactPage() {
             alt="Euro Edge Partnership Handshake Wallpaper"
             fill
             priority
+            quality={90}
             className="object-cover object-[70%_center] sm:object-[68%_center]"
             sizes="100vw"
           />

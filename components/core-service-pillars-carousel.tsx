@@ -43,6 +43,8 @@ export function CoreServicePillarsCarousel({ pillars }: { pillars: any[] }) {
                   src={pillar.img}
                   alt={pillar.title}
                   fill
+                  sizes="(max-width: 640px) 85vw, 320px"
+                  quality={90}
                   className="object-cover z-0"
                 />
                 {/* Dark Gradient Overlay */}
@@ -101,6 +103,8 @@ export function CoreServicePillarsCarousel({ pillars }: { pillars: any[] }) {
                 src={pillar.img}
                 alt={pillar.title}
                 fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                quality={90}
                 className="object-cover z-0"
               />
               {/* Dark Gradient Overlay */}

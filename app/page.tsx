@@ -81,7 +81,7 @@ export default function HomePage() {
             alt="Euro Edge Technical Services Engineer Overlooking Dubai Skyline"
             fill
             priority
-            quality={85}
+            quality={95}
             className="object-cover object-[78%_top] sm:object-[82%_top] sm:object-[right_top]"
             sizes="100vw"
           />

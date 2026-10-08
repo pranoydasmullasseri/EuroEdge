@@ -46,14 +46,14 @@ export const metadata = {
     "civil engineering company Dubai",
   ],
   alternates: {
-    canonical: "https://euroedgets.com/about",
+    canonical: "https://www.euroedgets.com/about",
   },
   openGraph: {
     title: "About Us | Euro Edge Technical Services L.L.C. — Dubai Contractor",
     description:
       "Dubai-based certified contractor delivering civil, MEP, pool, landscaping, and maintenance services across the UAE with quality-first craftsmanship.",
     type: "website",
-    url: "https://euroedgets.com/about",
+    url: "https://www.euroedgets.com/about",
     siteName: "Euro Edge Technical Services L.L.C.",
     locale: "en_AE",
   },

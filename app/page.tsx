@@ -47,14 +47,14 @@ export const metadata = {
   description:
     "The Edge of Quality Built on Trust. Euro Edge Technical Services L.L.C. delivers certified civil, MEP, swimming pool, landscaping, and turnkey technical contracting in Dubai and across the UAE.",
   alternates: {
-    canonical: "https://euroedgets.com",
+    canonical: "https://www.euroedgets.com",
   },
   openGraph: {
     title: "Euro Edge Technical Services L.L.C. | Dubai, UAE",
     description:
       "The Edge of Quality Built on Trust. Professional civil, MEP, swimming pool, landscaping, and facilities maintenance in Dubai, UAE.",
     type: "website",
-    url: "https://euroedgets.com",
+    url: "https://www.euroedgets.com",
   },
   twitter: {
     card: "summary_large_image",

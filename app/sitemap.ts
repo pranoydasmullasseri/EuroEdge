@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { servicesData } from '@/lib/services-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://euroedgets.com'
+  const baseUrl = 'https://www.euroedgets.com'
   const now = new Date()
 
   const staticRoutes: MetadataRoute.Sitemap = [

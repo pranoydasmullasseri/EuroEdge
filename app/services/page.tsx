@@ -23,7 +23,7 @@ export const metadata = {
     "building maintenance services Dubai",
   ],
   alternates: {
-    canonical: "https://euroedgets.com/services",
+    canonical: "https://www.euroedgets.com/services",
   },
   openGraph: {
     title: "Technical & MEP Services in Dubai | Euro Edge Technical Services L.L.C.",

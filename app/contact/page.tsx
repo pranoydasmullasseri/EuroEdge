@@ -27,14 +27,14 @@ export const metadata = {
     "technical services enquiry Dubai",
   ],
   alternates: {
-    canonical: "https://euroedgets.com/contact",
+    canonical: "https://www.euroedgets.com/contact",
   },
   openGraph: {
     title: "Contact Us | Euro Edge Technical Services L.L.C. Dubai",
     description:
       "Get in touch with Euro Edge in Dubai for MEP, civil finishing, HVAC, swimming pool, landscaping, or building maintenance enquiries.",
     type: "website",
-    url: "https://euroedgets.com/contact",
+    url: "https://www.euroedgets.com/contact",
     siteName: "Euro Edge Technical Services L.L.C.",
     locale: "en_AE",
   },

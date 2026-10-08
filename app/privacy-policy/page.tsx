@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Privacy Policy for Euro Edge Technical Services L.L.C. (Dubai, UAE). Understand how we collect, handle, and protect your information when requesting technical services or quotations.",
   alternates: {
-    canonical: "https://euroedgets.com/privacy-policy",
+    canonical: "https://www.euroedgets.com/privacy-policy",
   },
   openGraph: {
     title: "Privacy Policy | Euro Edge Technical Services L.L.C.",

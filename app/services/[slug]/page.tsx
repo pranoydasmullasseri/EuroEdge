@@ -35,7 +35,7 @@ export async function generateMetadata({
       "MEP contractor Dubai",
     ],
     alternates: {
-      canonical: `https://euroedgets.com/services/${service.slug}`,
+      canonical: `https://www.euroedgets.com/services/${service.slug}`,
     },
     openGraph: {
       title: pageTitle,

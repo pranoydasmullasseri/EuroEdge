@@ -16,14 +16,14 @@ export const metadata = {
     "villa contractor Dubai",
   ],
   alternates: {
-    canonical: "https://euroedgets.com/industries",
+    canonical: "https://www.euroedgets.com/industries",
   },
   openGraph: {
     title: "Industries We Serve | Euro Edge Technical Services — Dubai, UAE",
     description:
       "Euro Edge delivers integrated technical contracting for private villas, commercial buildings, hotels, retail, healthcare, and industrial facilities across Dubai and the UAE.",
     type: "website",
-    url: "https://euroedgets.com/industries",
+    url: "https://www.euroedgets.com/industries",
     siteName: "Euro Edge Technical Services L.L.C.",
     locale: "en_AE",
   },

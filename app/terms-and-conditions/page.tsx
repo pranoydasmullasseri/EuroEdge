@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Terms and Conditions governing technical services, quotations, MEP contracting, civil works, and maintenance agreements provided by Euro Edge Technical Services L.L.C. in Dubai, UAE.",
   alternates: {
-    canonical: "https://euroedgets.com/terms-and-conditions",
+    canonical: "https://www.euroedgets.com/terms-and-conditions",
   },
   openGraph: {
     title: "Terms and Conditions | Euro Edge Technical Services L.L.C.",

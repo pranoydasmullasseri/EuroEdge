@@ -5,9 +5,10 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "Organization", "GeneralContractor"],
     "name": "Euro Edge Technical Services L.L.C.",
-    "url": "https://euroedgets.com/",
-    "logo": "https://euroedgets.com/images/logo.png",
-    "image": "https://euroedgets.com/images/hero-dubai-skyline.jpg",
+    "alternateName": ["Euro Edge", "Euro Edge Dubai", "Euro Edge Technical Services"],
+    "url": "https://www.euroedgets.com/",
+    "logo": "https://www.euroedgets.com/images/logo.png",
+    "image": "https://www.euroedgets.com/images/hero-dubai-skyline.jpg",
     "description": "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
     "telephone": "+971543909946",
     "email": "info@euroedgets.com",
@@ -76,12 +77,12 @@ export function JsonLd() {
         "@type": "OfferCatalog",
         "name": service.title,
         "position": index + 1,
-        "url": `https://euroedgets.com/services/${service.slug}`
+        "url": `https://www.euroedgets.com/services/${service.slug}`
       }))
     },
     "potentialAction": {
       "@type": "CommunicateAction",
-      "target": "https://euroedgets.com/contact",
+      "target": "https://www.euroedgets.com/contact",
       "name": "Request a Quote"
     },
     "sameAs": [

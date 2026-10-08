@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Euro Edge Technical Services",
   ],
   alternates: {
-    canonical: 'https://euroedgets.com/',
+    canonical: 'https://www.euroedgets.com/',
   },
   robots: {
     index: true,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
     description: "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
     type: 'website',
-    url: 'https://euroedgets.com/',
+    url: 'https://www.euroedgets.com/',
     siteName: 'Euro Edge Technical Services L.L.C.',
     locale: 'en_AE',
   },

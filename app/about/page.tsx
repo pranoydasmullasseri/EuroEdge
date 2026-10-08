@@ -104,9 +104,9 @@ export default function AboutPage() {
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
+                    <p className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
                       Quality Workmanship
-                    </h4>
+                    </p>
                     <p className="font-editorial-body text-[11px] text-slate-500">
                       Built to Last
                     </p>
@@ -118,9 +118,9 @@ export default function AboutPage() {
                     <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
+                    <p className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
                       Reliable &amp; Professional
-                    </h4>
+                    </p>
                     <p className="font-editorial-body text-[11px] text-slate-500">
                       Technical Team
                     </p>
@@ -132,9 +132,9 @@ export default function AboutPage() {
                     <Compass className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
+                    <p className="font-editorial-nav text-xs font-semibold text-[#0a2540] leading-snug">
                       Serving All
-                    </h4>
+                    </p>
                     <p className="font-editorial-body text-[11px] text-slate-500">
                       7 Emirates
                     </p>

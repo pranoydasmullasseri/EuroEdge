@@ -88,7 +88,7 @@ export default function ContactPage() {
         <a
           href="tel:+971543909946"
           className="flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-2xl bg-[#0a2540] text-white font-bold text-sm min-h-[52px] active:bg-[#071a2e]"
-          aria-label="Call Euro Edge: +971 54 390 9946"
+          aria-label="Call Now: +971 54 390 9946"
         >
           <Phone className="w-4.5 h-4.5" />
           <span>Call Now</span>

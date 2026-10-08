@@ -14,26 +14,28 @@ export function AboutScrollAnimations() {
     ).matches
     if (prefersReducedMotion) return
 
-    gsap.registerPlugin(ScrollTrigger)
+    let ctx: gsap.Context | null = null
+    const timer = setTimeout(() => {
+      gsap.registerPlugin(ScrollTrigger)
 
-    const isMobile = window.innerWidth < 768
+      const isMobile = window.innerWidth < 768
 
-    // Directional displacement distances
-    const dist = {
-      headingX: isMobile ? -20 : -45,
-      headingY: isMobile ? 15 : 25,
-      bodyY: isMobile ? 15 : 25,
-      cardY: isMobile ? 20 : 35,
-      imageX: isMobile ? 20 : 40,
-      labelX: isMobile ? -12 : -20,
-      labelY: isMobile ? -12 : -20,
-      btnY: isMobile ? 15 : 24,
-    }
+      // Directional displacement distances
+      const dist = {
+        headingX: isMobile ? -20 : -45,
+        headingY: isMobile ? 15 : 25,
+        bodyY: isMobile ? 15 : 25,
+        cardY: isMobile ? 20 : 35,
+        imageX: isMobile ? 20 : 40,
+        labelX: isMobile ? -12 : -20,
+        labelY: isMobile ? -12 : -20,
+        btnY: isMobile ? 15 : 24,
+      }
 
-    const easeCurve = "power2.out"
+      const easeCurve = "power2.out"
 
-    // GSAP context for safe scoped cleanup
-    const ctx = gsap.context(() => {
+      // GSAP context for safe scoped cleanup
+      ctx = gsap.context(() => {
       // -------------------------------------------------------------
       // 1. HERO SECTION (Entrance on load + gentle float into position)
       // -------------------------------------------------------------
@@ -396,8 +398,12 @@ export function AboutScrollAnimations() {
         }
       }
     })
+  }, 50)
 
-    return () => ctx.revert()
+  return () => {
+    clearTimeout(timer)
+    ctx?.revert()
+  }
   }, [])
 
   return null

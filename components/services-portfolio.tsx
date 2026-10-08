@@ -515,7 +515,7 @@ export function ServicesPortfolio() {
                   alt="Euro Edge Technical Services Engineer Reviewing Modern Construction Plans Dubai"
                   fill
                   priority
-                  quality={95}
+                  quality={85}
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
@@ -568,7 +568,7 @@ export function ServicesPortfolio() {
                         src={item.image}
                         alt={`${item.title} - Euro Edge Technical Services Dubai`}
                         fill
-                        quality={95}
+                        quality={85}
                         className="object-cover object-center"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />

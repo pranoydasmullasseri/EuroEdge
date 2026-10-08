@@ -356,7 +356,7 @@ export function IndustriesPortfolio() {
             alt="Euro Edge Industries We Serve Wallpaper - Dubai Skyline & Engineering"
             fill
             priority
-            quality={95}
+            quality={85}
             className="object-cover object-right sm:object-[center_right] lg:object-center"
             sizes="100vw"
           />
@@ -501,11 +501,11 @@ export function IndustriesPortfolio() {
                       {/* For Card 2/even layout: Show Number & Category on top-left of Content */}
                       {!isImageLeft && (
                         <div className="mb-2">
-                          <span className="text-2xl sm:text-3xl font-serif font-bold text-[#fbb03b] leading-none block">
+                          <span className="text-2xl sm:text-3xl font-serif font-bold text-[#b4750e] leading-none block">
                             {sector.number}
                           </span>
-                          <div className="w-8 h-[2px] bg-[#fbb03b] my-1.5" />
-                          <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-slate-400 uppercase block">
+                          <div className="w-8 h-[2px] bg-[#b4750e] my-1.5" />
+                          <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-slate-600 uppercase block">
                             {sector.category}
                           </span>
                         </div>

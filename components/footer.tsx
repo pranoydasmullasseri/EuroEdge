@@ -104,9 +104,9 @@ export function Footer() {
 
           {/* Column 2: Official Services (Span 3) — hidden on mobile */}
           <div className="hidden sm:block lg:col-span-3">
-            <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-4">
+            <p className="text-xs font-bold text-white tracking-wider uppercase mb-4">
               Our Main Services
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-xs text-white/85 font-normal">
               <li>
                 <Link href="/services" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">
@@ -144,9 +144,9 @@ export function Footer() {
 
           {/* Column 3: Company Navigation — hidden on mobile, visible sm+ */}
           <div className="hidden sm:block lg:col-span-2">
-            <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-4">
+            <p className="text-xs font-bold text-white tracking-wider uppercase mb-4">
               Company
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-xs text-white/85 font-normal">
               <li>
                 <Link href="/" className="hover:text-white hover:translate-x-0.5 inline-block transition-all">
@@ -178,9 +178,9 @@ export function Footer() {
 
           {/* Column 4: Direct Contact (Span 3) - Real WhatsApp Icon & No Hover Flash */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-4">
+            <p className="text-xs font-bold text-white tracking-wider uppercase mb-4">
               Direct Contact
-            </h4>
+            </p>
             <ul className="space-y-3 text-xs text-white/90">
               <li>
                 <a

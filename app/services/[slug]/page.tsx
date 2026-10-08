@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyContactWidget } from "@/components/sticky-contact-widget"
@@ -17,8 +17,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const resolvedSlug = legacySlugMap[slug] || slug
-  const service = servicesData.find((s) => s.slug === resolvedSlug)
+  if (legacySlugMap[slug]) {
+    permanentRedirect(`/services/${legacySlugMap[slug]}`)
+  }
+  const service = servicesData.find((s) => s.slug === slug)
   if (!service) return { title: "Service Not Found | Euro Edge Technical Services" }
 
   const pageTitle = service.titleTag || `${service.title} in Dubai | Euro Edge Technical Services`
@@ -41,7 +43,7 @@ export async function generateMetadata({
       title: pageTitle,
       description: service.shortDesc,
       type: "website",
-      url: `https://euroedgets.com/services/${service.slug}`,
+      url: `https://www.euroedgets.com/services/${service.slug}`,
       siteName: "Euro Edge Technical Services L.L.C.",
       locale: "en_AE",
     },
@@ -54,12 +56,8 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const allSlugs = [
-    ...servicesData.map((s) => s.slug),
-    ...Object.keys(legacySlugMap),
-  ]
-  return allSlugs.map((slug) => ({
-    slug,
+  return servicesData.map((service) => ({
+    slug: service.slug,
   }))
 }
 
@@ -69,8 +67,10 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const resolvedSlug = legacySlugMap[slug] || slug
-  const service = servicesData.find((s) => s.slug === resolvedSlug)
+  if (legacySlugMap[slug]) {
+    permanentRedirect(`/services/${legacySlugMap[slug]}`)
+  }
+  const service = servicesData.find((s) => s.slug === slug)
 
   if (!service) {
     notFound()
@@ -81,7 +81,7 @@ export default async function ServiceDetailPage({
     "@type": "Service",
     "name": service.title,
     "description": service.shortDesc,
-    "url": `https://euroedgets.com/services/${service.slug}`,
+    "url": `https://www.euroedgets.com/services/${service.slug}`,
     "areaServed": {
       "@type": "City",
       "name": "Dubai",
@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({
     "provider": {
       "@type": "LocalBusiness",
       "name": "Euro Edge Technical Services L.L.C.",
-      "url": "https://euroedgets.com/",
+      "url": "https://www.euroedgets.com/",
       "telephone": "+971543909946",
       "email": "info@euroedgets.com",
       "address": {

@@ -46,18 +46,27 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  openGraph: {
+    openGraph: {
     title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
     description: "Euro Edge Technical Services L.L.C. delivers certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
     type: 'website',
     url: 'https://www.euroedgets.com/',
     siteName: 'Euro Edge Technical Services L.L.C.',
     locale: 'en_AE',
+    images: [
+      {
+        url: 'https://www.euroedgets.com/images/hero-dubai-skyline.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Euro Edge Technical Services Dubai',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Technical Services & MEP Contractor Dubai | Euro Edge Technical Services L.L.C.",
     description: "Certified MEP, civil finishing, swimming pool, landscaping, and building maintenance contracting across Dubai and the UAE.",
+    images: ['https://www.euroedgets.com/images/hero-dubai-skyline.jpg'],
   },
   icons: {
     icon: '/images/logo.png',
